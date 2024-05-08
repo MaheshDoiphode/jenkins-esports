@@ -9,7 +9,7 @@ public class UserController {
 
     @GetMapping("/test")
     public String testApi(){
-        return "working";
+        return "working with ngrok";
     }
 
 }
