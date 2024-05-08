@@ -7,7 +7,6 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                    git 'https://github.com/MaheshDoiphode/jenkins-esports'
                     sh 'mvn clean package'
                 }
             }
