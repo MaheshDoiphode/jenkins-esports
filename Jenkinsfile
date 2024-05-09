@@ -11,6 +11,10 @@ pipeline {
                 }
             }
         }
+        stage('Initialize') {
+            def dockerHome = tool 'docker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
         stage('dockerbuild') {
             steps {
                 script {
@@ -22,7 +26,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
-                        sh "docker login -u mahesh324 -p $dockerpwd"
+                        sh "docker login -u mahesh324 -p ${dockerpwd}"
                         sh 'docker push mahesh324/jenkins-es-pipeline'
                     }
                 }
