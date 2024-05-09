@@ -1,6 +1,7 @@
 pipeline {
     agent any
     tools {
+        git 'git'
         maven 'maven-3.9.6'
         dockerTool 'docker'
     }
