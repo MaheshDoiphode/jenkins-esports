@@ -4,13 +4,6 @@ pipeline {
         maven 'maven-3.9.6'
     }
     stages {
-        stage('build') {
-            steps {
-                script {
-                    sh 'mvn clean package'
-                }
-            }
-        }
         stage('Initialize') {
             steps {
                 script {
@@ -19,6 +12,22 @@ pipeline {
                 }
             }
         }
+        stage('testDocker'){
+            steps{
+                script{
+                    sh 'docker --version'
+                }
+            
+            }
+        }
+        stage('build') {
+            steps {
+                script {
+                    sh 'mvn clean package'
+                }
+            }
+        }
+        
         stage('dockerbuild') {
             steps {
                 script {
