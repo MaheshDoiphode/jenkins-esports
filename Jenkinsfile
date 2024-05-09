@@ -2,16 +2,17 @@ pipeline {
     agent any
     tools {
         maven 'maven-3.9.6'
+        docker 'docker'
     }
     stages {
-        stage('Initialize') {
-            steps {
-                script {
-                    def dockerHome = tool 'docker'
-                    env.PATH = "${dockerHome}/bin:${env.PATH}"
-                }
-            }
-        }
+        // stage('Initialize') {
+        //     steps {
+        //         script {
+        //             def dockerHome = tool 'docker'
+        //             env.PATH = "${dockerHome}/bin:${env.PATH}"
+        //         }
+        //     }
+        // }
         stage('testDocker'){
             steps{
                 script{
